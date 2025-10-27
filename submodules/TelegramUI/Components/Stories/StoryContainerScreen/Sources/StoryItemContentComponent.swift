@@ -263,7 +263,7 @@ final class StoryItemContentComponent: Component {
                         }
                     }
                     videoNode.ownsContentNodeUpdated = { [weak self] value in
-                        guard let self, let component = self.component else {
+                        guard let self, self.component != nil else {
                             return
                         }
                         if value {
