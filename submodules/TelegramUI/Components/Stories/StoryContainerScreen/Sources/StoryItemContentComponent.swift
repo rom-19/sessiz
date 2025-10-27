@@ -212,9 +212,9 @@ final class StoryItemContentComponent: Component {
                             imageReference: nil,
                             streamVideo: .story,
                             loopVideo: true,
-                            enableSound: true,
-                            soundMuted: component.audioMode == .off,
-                            beginWithAmbientSound: component.audioMode == .ambient,
+                            enableSound: false,
+                            soundMuted: true,
+                            beginWithAmbientSound: false,
                             mixWithOthers: true,
                             useLargeThumbnail: false,
                             autoFetchFullSizeThumbnail: false,
@@ -268,11 +268,7 @@ final class StoryItemContentComponent: Component {
                         }
                         if value {
                             self.videoNode?.seek(0.0)
-                            if component.audioMode != .off {
-                                self.videoNode?.playOnceWithSound(playAndRecord: false, actionAtEnd: .stop)
-                            } else {
-                                self.videoNode?.play()
-                            }
+                            self.videoNode?.play()
                         }
                     }
                     videoNode.canAttachContent = true
