@@ -205,6 +205,7 @@ public final class ChunkMediaPlayerV2: ChunkMediaPlayer {
     private var isSoundEnabled: Bool
     private var isMuted: Bool
     private var isAmbientMode: Bool
+    private let mixWithOthers: Bool
      
     private var seekId: Int = 0
     private var seekTimestamp: Double = 0.0
@@ -258,6 +259,7 @@ public final class ChunkMediaPlayerV2: ChunkMediaPlayer {
         self.isSoundEnabled = enableSound
         self.isMuted = soundMuted
         self.isAmbientMode = ambient
+        self.mixWithOthers = mixWithOthers
         self.baseRate = baseRate
         
         self.renderSynchronizer = AVSampleBufferRenderSynchronizer()
@@ -324,7 +326,7 @@ public final class ChunkMediaPlayerV2: ChunkMediaPlayer {
         if self.isSoundEnabled && self.hasSound {
             if self.audioSessionDisposable == nil {
                 self.audioSessionDisposable = self.audioSessionManager.push(params: ManagedAudioSessionClientParams(
-                    audioSessionType: self.isAmbientMode ? .ambient : .play(mixWithOthers: false),
+                    audioSessionType: self.isAmbientMode ? .ambient : .play(mixWithOthers: self.mixWithOthers),
                     activateImmediately: false,
                     manualActivate: { [weak self] control in
                         control.setupAndActivate(synchronous: false, { state in

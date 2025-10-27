@@ -281,7 +281,7 @@ public final class HLSVideoContent: UniversalVideoContent {
     let autoFetchFullSizeThumbnail: Bool
     let codecConfiguration: HLSCodecConfiguration
     
-    public init(id: NativeVideoContentId, userLocation: MediaResourceUserLocation, fileReference: FileMediaReference, streamVideo: Bool = false, loopVideo: Bool = false, enableSound: Bool = true, baseRate: Double = 1.0, fetchAutomatically: Bool = true, onlyFullSizeThumbnail: Bool = false, useLargeThumbnail: Bool = false, autoFetchFullSizeThumbnail: Bool = false, codecConfiguration: HLSCodecConfiguration) {
+    public init(id: NativeVideoContentId, userLocation: MediaResourceUserLocation, fileReference: FileMediaReference, streamVideo: Bool = false, loopVideo: Bool = false, enableSound: Bool = false, baseRate: Double = 1.0, fetchAutomatically: Bool = true, onlyFullSizeThumbnail: Bool = false, useLargeThumbnail: Bool = false, autoFetchFullSizeThumbnail: Bool = false, codecConfiguration: HLSCodecConfiguration) {
         self.id = id
         self.userLocation = userLocation
         self.nativeId = id

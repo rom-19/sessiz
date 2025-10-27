@@ -73,8 +73,9 @@ final class LivestreamVideoViewV1: UIView {
             audioSessionManager: audioSessionManager,
             source: .externalParts(self.chunkPlayerPartsState.get()),
             video: true,
-            enableSound: true,
+            enableSound: false,
             baseRate: 1.0,
+            mixWithOthers: true,
             onSeeked: {
                 onSeeked?()
             },
